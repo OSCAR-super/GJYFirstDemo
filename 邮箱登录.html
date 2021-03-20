@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>登录</title>
+        <style type="text/css">
+		.first
+		{
+			position: absolute;
+			top:14%;
+			left:7%;
+			color:rgb(226, 180, 188);
+			font-size:25px;
+		}
+		.hi{
+			color:rgb(226, 180, 188);
+			font-size: 50px;
+			position: absolute;
+			left:7%;
+			top:0%;
+		}
+		.back
+		{
+			position: absolute;
+			left:1%;
+			width:1800px;
+			height:900px;
+		}
+		h1{
+			position:absolute;
+            left:46%;
+            top:25%;
+		}
+		div
+		{
+			color:rgb(247, 188, 197);
+             margin-top: 30px;
+			 margin-left: 10px;
+		}
+		.panel-body
+        {
+            border:2px  solid  rgb(252, 181, 193);
+            border-radius: 30px;
+            position:absolute;
+            left:37%;
+            top:33%;
+            height: 300px;
+			width:400px;
+        }
+		input{
+		border:2px  solid  rgb(252, 181, 193);
+		font-size: 16px;
+         border-color:rgb(238, 201, 207);
+         outline: none;
+         color: rgb(216, 168, 176);
+         height:40px;
+         width:290px;
+         }
+         button:hover{
+		background-color:rgb(255, 241, 243);
+		cursor:pointer ;
+	    }
+        input:hover{
+		background-color: rgb(253, 235, 238);
+		cursor:pointer ;
+	    }
+		#email
+		{
+           margin-left: 35px;
+		}
+		#password
+		{
+			margin-left: 35px;
+		}
+		#loginButton
+		{
+			position: absolute;
+			top:65%;
+			left:10%;
+           margin-left: 15px;
+		   height:43px;
+           width:300px;
+		}
+		#registerButton
+		{
+			position: absolute;
+			top:65%;
+			left:54%;
+			margin-left: 18px;
+			font-size: 20px;
+			color:rgb(240, 182, 192);
+		}
+		#another
+		{
+			position: absolute;
+			top:65%;
+			left:38%;
+			margin-left: 18px;
+			font-size: 20px;
+			color:rgb(240, 182, 192);
+		}
+		</style>
+	</head>
+	<body>
+		<img class="back" src="QQ图片20210315202025.jpg">
+		<form class="panel panel-default" id="login">
+			<a class="first" href="主页.html">返回主页</a>
+			<div><p class="hi">西二online漫画</p></div>
+			<div class="panel-heading">
+				<h1 class="panel-title">登录</h1>
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label for="email">邮箱</label>
+					<input type="email" class="form-control" id="email" name="email" placeholder="请输入邮箱">
+				</div>
+				<div class="form-group">
+					<label for="password">密码</label>
+					<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+				</div>
+				<p id="info" style="color: red;"></p><br />
+				<input type="button" value="登录" id="loginButton" class="btn btn-default">
+			</div>
+			<div>
+				<a id="another" href="login.html">手机号登录</a>
+			</div>
+			<div>
+				<a id="registerButton" href="注册.html" class="btn btn-default">注册</a>
+			</div>
+		</form>
+		<script type="text/javascript">
+			$("#loginButton").click(function(){
+				var email = $("#email").val();
+				var password = $("#password").val();
+				if(email.trim().length == 0 ){
+					$("#info").text("请输入邮箱");
+				}else if(password.length == 0){
+					$("#info").text("请输入密码");
+				}else{
+					$.ajax({
+						type:"POST",
+						url: "http://localhost:8080/task/loginServlet",
+						data:{
+							phone:phone,
+							password:password
+						},
+						dataType:"json",
+						success: function(data) {
+							if(data.succ){
+								$("#info").text("登录成功");
+								//获取token
+								window.sessionStorage.token =data.token;
+								window.sessionStorage.userId = data.userId;
+								window.location.href="index.html";
+							}else{
+								$("#info").text(data.info);
+							}
+						},
+						error: function(err) {
+							$("#info").text("系统错误，请稍后重试");
+						}
+					});
+				}
+			}
+			);
+		</script>
+	</body>
+</html>

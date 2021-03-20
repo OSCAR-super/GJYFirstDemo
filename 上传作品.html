@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>上传作品</title>
+<style>
+.other{
+display: none;
+}
+.section input[type=checkbox]:checked+lable+.other{
+display: block;
+}
+</style>
+<style type="text/css">
+div
+{
+    font-size: 20px;
+    color:white;
+    margin-bottom:50px;
+}
+input{
+		border:2px  solid  white;
+		font-size: 16px;
+         border-color:rgb(218, 243, 247);
+         outline: none;
+         color: rgb(85, 124, 124);
+         height:40px;
+         width:290px;
+         margin: 15px;
+         }
+        input:hover{
+		background-color: white;
+		cursor:pointer ;
+	    }
+    h1{
+        position: absolute;
+        left:47%;
+        top:5%;
+        color:white;
+    }
+    legend{
+        color:white;
+        font-size: 25px;
+    }
+    .a
+    {
+        position: absolute;
+        left:30%;
+        top:13%;
+        width:700px;
+        height: 700px;
+        border:3px  solid  white;
+        border-radius:6% ;
+    }
+         button:hover{
+		background-color:white;
+		cursor:pointer ;
+	    }
+        .xb
+        {
+           height:20px;
+           width:50px;
+           margin:5px;
+        }
+        .first
+		{
+			position: absolute;
+			top:14%;
+			left:1%;
+			color:white;
+			font-size:25px;
+		}
+        .back1
+		{
+			width:1850px;
+			height:900px;
+		}
+		.hi{
+			color:white;
+			font-size: 50px;
+			position: absolute;
+			left:1%;
+			top:0%;
+		}
+        .b{
+             height:100px;
+             width:380px;
+             background-color: white;
+        }
+        .c{
+            height:100px;
+             width:290px;
+        }
+        .d
+        {
+            position: absolute;
+            left:85%;
+            top:88%;
+            color:white;
+            font-size: 29px;
+        }
+</style>
+
+</head>
+<body>
+<img class="back1" src="QQ图片20210320143415.jpg">
+<a class="first" href="主页.html">返回主页</a>
+<div><p class="hi">西二online漫画</p></div>
+<h1>上传作品</h1>
+<fieldset class="a">
+<legend>内容</legend>
+<div>
+    <form action="" method="GET">
+        <div>
+            <label for="name">作品名称</label>
+             <input type="text" >
+        </div>
+        <div>
+            <p class="">标签选择</p>
+            <input class="xb" type="radio" value="nan">都市
+            <input class="xb" type="radio" value="nv"> 仙侠
+            <input class="xb" type="radio" value="nan">搞笑
+            <input class="xb" type="radio" value="nv"> 古风
+            <input class="xb" type="radio" value="nan">玄幻
+            <input class="xb" type="radio" value="nv"> 校园
+            <input class="xb" type="radio" value="nan">悬疑
+            <input class="xb" type="radio" value="nv"> 恋爱
+            <input class="xb" type="radio" value="nan">日常
+            <input class="xb" type="radio" value="nv"> 少女
+            <input class="xb" type="radio" value="nan">热血
+            <input class="xb" type="radio" value="nv"> 同人
+        </div>
+        <div>
+            <label for="introduction">作品简介</label>
+             <input class="c" type="text">
+        </div>
+        <div>
+            <p>作品上传</p>
+            <input class="b" type="file" accept="image/jpg, image/jpeg, image/png">
+        </div>
+        <div>
+            <a href="我的作品.html" class="d"><p>提交</p>
+        </div>
+        </form>
+</div>
+</fieldset>
+</form>
+</body>
+</html>

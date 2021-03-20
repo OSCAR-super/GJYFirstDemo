@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册</title>
+        <style type="text/css">
+		.first
+		{
+			position: absolute;
+			top:14%;
+			left:7%;
+			color:rgb(226, 180, 188);
+			font-size:25px;
+		}
+		.back
+		{
+			width:1800px;
+			height:900px;
+		}
+		.hi{
+			color:rgb(226, 180, 188);
+			font-size: 50px;
+			position: absolute;
+			left:7%;
+			top:0%;
+		}
+        h1{
+            position:absolute;
+            left:46%;
+            top:12%;
+        }
+		.g
+		{
+			position: absolute;
+			left:27%;
+			top:5%;
+			width:90px;
+			height: 90px;
+			border-radius: 50%;
+		}
+        .panel-body
+        {
+            border:2px  solid  rgb(252, 181, 193);
+            border-radius: 30px;
+            position:absolute;
+            left:37%;
+            top:20%;
+            height: 480px;
+        }
+         div
+         {
+             color:rgb(247, 188, 197);
+             margin-top: 30px;
+			 margin-left: 10px;
+         }
+         input{
+		border:2px  solid  rgb(252, 181, 193);
+		font-size: 16px;
+         border-color:rgb(238, 201, 207);
+         outline: none;
+         color: rgb(216, 168, 176);
+         height:40px;
+         width:290px;
+         }
+         button:hover{
+		background-color:rgb(255, 241, 243);
+		cursor:pointer ;
+	    }
+        input:hover{
+		background-color: rgb(253, 235, 238);
+		cursor:pointer ;
+	    }
+		#name{
+			margin-left: 32px;
+		}
+		#password{
+			margin-left: 32px;
+		}
+		#repassword{
+			margin-right: 10px;
+		}
+		#phone{
+			margin-left: 17px;
+		}
+		#email{
+			margin-left: 32px;
+		}
+		#registerButton{
+			margin-left: 10px;
+		}
+		#loginButton
+		{
+			margin-left: 18px;
+			font-size: 20px;
+			color:rgb(240, 182, 192);
+		}
+        </style>
+	</head>
+	<body>
+		<img class="back" src="QQ图片20210315202406.jpg">
+		<form class="panel panel-default" id="login">
+			<a class="first" href="主页.html">返回主页</a>
+			<div><p class="hi">西二online漫画</p></div>
+			<img class="g" src="QQ图片20210315202801.jpg">
+			<div class="panel-heading">
+				<h1 class="panel-title">注册</h1>
+			</div>
+			<div class="panel-body">
+				<div class="form-group">
+					<label for="name">名称</label>
+					<input type="text" class="form-control" id="name" name="name" placeholder="请输入名称">
+				</div>
+				<div class="form-group">
+					<label for="password">密码</label>
+					<input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+				</div>
+				<div class="form-group">
+					<label for="repassword">确认密码</label>
+					<input type="password" class="form-control" id="repassword" name="repassword" placeholder="请确认密码">
+				</div>
+				<div class="form-group">
+					<label for="phone">手机号</label>
+					<input type="tel" class="form-control" id="phone" name="phone" placeholder="请输入11位手机号">
+				</div>
+				<div class="form-group">
+					<label for="email">邮箱</label>
+					<input type="email" class="form-control" id="email" name="email" placeholder="请输入邮箱">
+				</div>
+				<p id="info" style="color:rgb(46, 42, 43);"></p><br />
+				<input type="button" value="注册" id="registerButton" class="btn btn-default">
+				<a id="loginButton" href="login.html" class="btn btn-default">登录</a>
+			</div>
+		</form>
+		<script type="text/javascript">
+			$("#registerButton").click(function(){
+				var name = $("#name").val();
+				var password = $("#password").val();
+				var repassword = $("#repassword").val();
+				var phone = $("#phone").val();
+				var email = $("#email").val();
+				if(name.trim().length==0){
+					$("#info").text("请输入名称");
+				}else if(password.trim().length==0){
+					$("#info").text("请输入密码");
+				}else if(repassword.trim().length==0){
+					$("#info").text("请确认密码");
+				}else if(password != repassword){
+					$("#info").text("密码不一致");
+				}else if(phone.trim().length==0){
+					$("#info").text("请输入手机号");
+				}else if(phone.trim().length != 11){
+					$("#info").text("手机号格式错误");
+				}else if(email.trim().length == 0){
+					$("#info").text("请输入邮箱");
+				}else{
+					$.ajax({
+						type:"POST",
+						url: "http://localhost:8080/task/registerServlet",
+						data:{
+							name:name,
+							password:password,
+							phone:phone,
+							email:email
+						},
+						dataType:"JSON",
+						success: function(data) {
+							if(data){
+								$("#info").text("注册成功");
+								window.location.href="login.html"
+							}else{
+								$("#info").text(data.info);
+							}
+						},
+						error: function(err) {
+							console.log(err);
+							$("#info").text("系统错误，请稍后重试");
+						}
+					});
+				}
+			});
+		</script>
+	</body>
+</html>

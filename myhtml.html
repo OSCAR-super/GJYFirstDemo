@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>用户列表</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="application/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="application/javascript" src="js/bootstrap.min.js"></script>
+		<script type="application/javascript" src="js/index.js"></script>
+		<script>
+			$(function() {
+				var token = window.sessionStorage.getItem("token");
+				if (token==null) {
+					window.location.href = "login.html";
+				} else {
+					refesh(1);
+				}
+			});
+		</script>
+	</head>
+	<body>
+			<div style="margin-right: 10%;margin-left: 10%;width: 80%;">
+				<h1 style="text-align: center">用户列表</h1>
+				<table id="table" class="table table-bordered" style="margin-top: 30px;text-align: center; cursor: pointer;">
+					<thead>
+						<tr>
+							<th style="text-align: center">序号</th>
+							<th style="text-align: center">名称</th>
+							<th style="text-align: center">手机号</th>
+							<th style="text-align: center">邮箱</th>
+						</tr>
+					</thead>
+					<tbody id="tablebody">
+					</tbody>
+				</table>
+				<div id="page" style="width: 80%;text-align: center;position: absolute;top:80%">
+				</div>
+			</div>
+	</body>
+</html>

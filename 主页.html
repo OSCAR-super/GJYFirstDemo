@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8" />
+		<title>主页</title>
+        <style type="text/css">
+.hi{
+			color:white;
+			font-size: 50px;
+            position: absolute;
+            left:2%;
+            top:-3%;
+		}
+.detail
+{
+    width:1850px;
+    height:200px;
+    background-color: rgb(244, 248, 252);
+}
+.clear
+{
+    width:925px;
+    height:200px;
+    background-color: rgb(19, 133, 141);
+}
+.detail a{
+	text-decoration:none;
+	color:rgb(135, 197, 248);
+    float:left;
+	font-size:23px;
+}
+.my
+{
+    position: absolute;
+    left: 82%;
+    top:4%;
+}
+.zp
+{
+    position: absolute;
+    left: 89%;
+    top:4%;
+}
+.detail a:hover{
+	color:rgb(114, 176, 247);
+}
+.clear a{
+color: white;
+position: absolute;
+top:17%;
+margin-left: 20px;
+}
+.b
+{
+    position: absolute;
+    left:22%;
+}
+.d
+{
+    position: absolute;
+    left:30%;
+}
+.f
+{
+    position: absolute;
+    left:40%
+}
+#search{
+	display:inline-block;
+	position:absolute;/*搜索框位置*/
+	left:40%;
+	top:25%;
+}
+input{
+		border:2px  solid   rgb(19, 133, 141);
+		font-size: 16px;
+         outline: none;
+         color:  rgb(19, 133, 141);
+         height:40px;
+         width:310px;
+         }
+         button{
+		border:2px  solid   rgb(19, 133, 141);
+		font-size: 16px;
+         outline: none;
+         color:  rgb(19, 133, 141);
+         height:45px;
+         width:100px;
+         background-color:white;
+         }
+button:hover{
+        background-color:rgb(194, 237, 240);
+	    cursor:pointer ;
+        }
+input:hover{
+		background-color:  rgb(194, 237, 240);
+		cursor:pointer ;
+}
+#sort{
+	float:left;/*分类栏布局在左*/
+	height:875px;
+	background-color: rgb(225, 238, 238);
+}
+ 
+#book1 li{
+	display:block;/*书籍类别块*/
+	float:top;/**/
+	padding:10px;/*相互间间距*/
+	margin:25px;
+	width:140px;
+	/*background-color:#0FF;*/
+	text-align:center;
+}
+ 
+#book1 a{
+	color:rgb(19, 133, 141);
+    font-size: 21px;
+	text-decoration:none
+}
+</style>
+    </head>
+        <body>
+            <form>
+                <div><p class="hi">西二online漫画</p></div>
+            <div class="detail">
+                  <a class="my" href="我的个人中心.html">我的</a>
+                  <a class="zp" href="我的作品.html">我的作品</a>
+                <div class="clear">
+                        <a class="b" href="主页.html">首页</a>
+                        <a class="d"  href="资源中心.html" onClick="f1()">资源中心</a>
+                        <a class="f" href="login.html">登录</a>
+                </div>
+              </div>
+            </form>
+            <div id="sort">
+                <ul id="book1">
+                  <li class="f3"><a href="资源中心.html">都市</a></li>
+                  <li class="s"><a href="资源中心.html">仙侠</a></li>
+                  <li class="t"><a href="资源中心.html">搞笑</a></li>
+                  <li class="f1"><a href="资源中心.html">古风</a></li>
+                  <li class="f2"><a href="资源中心.html">玄幻</a></li>
+                  <li class="s"><a href="资源中心.html">校园</a></li>
+                  <li class="s1"><a href="资源中心.html">悬疑</a></li>
+                  <li class="g"><a href="资源中心.html">恋爱</a></li>
+                  <li class="g1"><a href="资源中心.html">日常</a></li>
+                  <li class="g2"><a href="资源中心.html">少女</a></li>
+                  <li class="g2"><a href="资源中心.html">热血</a></li>
+                  <li class="g3"><a href="资源中心.html">同人</a></li>
+                </ul>
+              </div>
+            <div id="search">
+                <form id="form">
+                  <input class="in1" name="search" type="text" placeholder="请输入您要搜索的关键字">
+                  <button onclick="f2()">搜索</button>
+                  <!--input class="ou1" type="submit" name="send"  value="搜索"-->
+                </form>
+              </div>  <!--search-->
+              <img class="back" src="QQ图片20210316144828.jpg">
+              <div>
+                  <div class=""></div>
+                  <div></div>
+                  <div></div>
+              </div>
+        </body>
+</html>
